@@ -4,8 +4,6 @@ import hero from "@/assets/hero.jpg";
 import dessert1 from "@/assets/dessert-1.jpg";
 import dessert2 from "@/assets/dessert-2.jpg";
 import dessert3 from "@/assets/dessert-3.jpg";
-import { AmbientCursor } from "@/components/AmbientCursor";
-import { HiddenMenu } from "@/components/HiddenMenu";
 import { RevealDessert } from "@/components/RevealDessert";
 
 export const Route = createFileRoute("/")({
@@ -27,8 +25,6 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      <AmbientCursor />
-      <HiddenMenu />
 
       {/* Wordmark */}
       <div className="fixed left-8 top-8 z-[80]">
