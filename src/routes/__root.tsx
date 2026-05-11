@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { AmbientCursor } from "@/components/AmbientCursor";
+import { HiddenMenu } from "@/components/HiddenMenu";
 
 function NotFoundComponent() {
   return (
@@ -116,6 +118,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AmbientCursor />
+      <HiddenMenu />
       <Outlet />
     </QueryClientProvider>
   );
