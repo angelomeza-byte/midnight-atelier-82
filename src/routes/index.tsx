@@ -30,68 +30,53 @@ function Index() {
         </span>
       </div>
 
-      {/* ─────────────── 1. HERO — IDENTIDAD (cream) ─────────────── */}
+      {/* ─────────────── 1. HERO — IDENTIDAD (cinematográfico) ─────────────── */}
       <section
         ref={heroRef}
-        className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden"
-        style={{ background: "var(--color-cream)" }}
+        className="relative flex h-[100svh] w-full items-end overflow-hidden bg-background"
       >
-        {/* macro hero image floating in negative space */}
-        <div
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-          style={{ transform: `translate3d(0, ${heroShift}px, 0)` }}
-        >
-          <div className="relative aspect-[3/4] h-[55vh] overflow-hidden rounded-sm md:h-[75vh]">
-            <img
-              src={hero}
-              alt="A single dessert in a pool of warm light"
-              className="h-full w-full object-cover float-slow"
-              style={{ filter: "brightness(0.95) contrast(1.05)" }}
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse at center, transparent 50%, var(--color-cream) 95%)",
-              }}
-            />
+        <img
+          src={hero}
+          alt="A single dessert in a pool of warm light"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{
+            transform: `translate3d(0, ${heroShift}px, 0) scale(1.05)`,
+            opacity: Math.max(0, 1 - scrolled / 600),
+            filter: "brightness(0.85)",
+            transition: "opacity 200ms linear",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-8 pb-32 md:pb-40">
+          <div className="space-y-6 soft-rise">
+            <span className="eyebrow">— un atelier, después del anochecer —</span>
+            <h1 className="display text-[clamp(3rem,9vw,9rem)] text-cream">
+              De cacao,
+              <br />
+              <span className="italic text-ember/90">silencio,</span>
+              <br />
+              y horas lentas.
+            </h1>
           </div>
         </div>
 
+        {/* floating ember light */}
         <div
-          className="relative z-10 mx-auto w-full max-w-6xl px-8 py-24 text-center soft-rise"
-          style={{ color: "var(--color-espresso)" }}
-        >
-          <span className="eyebrow" style={{ color: "var(--color-cocoa)" }}>
-            — un atelier, después del anochecer —
-          </span>
-          <h1 className="display mt-8 text-[clamp(2.75rem,9vw,9rem)]">
-            De cacao,
-            <br />
-            <span className="italic" style={{ color: "var(--color-cocoa)" }}>
-              silencio
-            </span>
-            <br />y horas lentas.
-          </h1>
-          <p
-            className="mx-auto mt-10 max-w-md text-sm leading-relaxed"
-            style={{ color: "var(--color-cocoa)", opacity: 0.85 }}
-          >
-            Noctume es un pequeño taller de postres nocturnos. Hacemos siete piezas
-            por noche, una sola vez, y cerramos cuando se han ido.
-          </p>
-        </div>
+          aria-hidden
+          className="pointer-events-none absolute right-[15%] top-[20%] h-64 w-64 rounded-full pulse-glow"
+          style={{
+            background:
+              "radial-gradient(circle, oklch(0.68 0.10 55 / 0.35), transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
 
-        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-          <span
-            className="eyebrow whisper"
-            style={{ color: "var(--color-cocoa)", opacity: 0.6 }}
-          >
-            desliza, despacio
-          </span>
+        <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2">
+          <span className="eyebrow whisper">desliza, despacio</span>
         </div>
       </section>
+
 
       {/* ─────────────── 2. SERVICIOS — OFERTA B2C + B2B (midnight) ─────────────── */}
       <section className="relative bg-background py-32">
