@@ -21,10 +21,31 @@ function Index() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Reveal sections on scroll instead of hard cuts
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   const heroShift = scrolled * 0.25;
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+      {/* Persistent scroll-driven 3D environment (fixed, behind everything) */}
+      <Floating3DScene />
+
       {/* Wordmark */}
       <div className="fixed left-8 top-8 z-[80] mix-blend-difference">
         <span className="display text-xl tracking-[0.4em] text-cream">
@@ -34,22 +55,20 @@ function Index() {
       {/* ─────────────── 1. HERO — IDENTIDAD (cinematográfico + 3D) ─────────────── */}
       <section
         ref={heroRef}
-        className="relative flex h-[100svh] w-full items-end overflow-hidden bg-background"
+        className="relative flex h-[100svh] w-full items-end overflow-hidden"
       >
         <img
           src={hero}
           alt="A single dessert in a pool of warm light"
           className="absolute inset-0 h-full w-full object-cover"
           style={{
-            transform: `translate3d(0, ${heroShift}px, 0) scale(1.05)`,
+            transform: `translate3d(0, ${heroShift}px, 0) scale(${1.05 + scrolled / 6000})`,
             opacity: Math.max(0, 1 - scrolled / 600),
             filter: `brightness(${0.85 - scrolled / 2400}) blur(${Math.min(scrolled / 120, 8)}px)`,
             transition: "opacity 200ms linear",
           }}
         />
 
-        {/* Floating 3D dessert objects */}
-        <Floating3DScene />
 
         {/* Volumetric fog veil */}
         <div
