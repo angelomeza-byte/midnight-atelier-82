@@ -149,11 +149,12 @@ function Index() {
             <span className="eyebrow">02 — la oferta</span>
             <span className="h-px w-24 bg-cream/20" />
           </div>
-
-          <h2 className="display max-w-3xl text-4xl text-cream md:text-6xl">
+          <h2 className="reveal display max-w-3xl text-4xl text-cream md:text-6xl">
             Dos formas de
             <br />
             <span className="italic text-ember/90">entrar al cuarto.</span>
+          </h2>
+
           </h2>
 
           <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-2">
