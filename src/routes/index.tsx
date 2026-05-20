@@ -321,11 +321,14 @@ function Index() {
             <span className="eyebrow">04 — alcance</span>
             <span className="h-px w-24 bg-cream/20" />
           </div>
-
-          <h2 className="display max-w-4xl text-4xl text-cream md:text-6xl">
+          <h2 className="reveal display max-w-4xl text-4xl text-cream md:text-6xl">
             Pequeños, a propósito.
             <br />
             <span className="italic text-ember/90">
+              Pero llegando más lejos.
+            </span>
+          </h2>
+
               Pero llegando más lejos.
             </span>
           </h2>
