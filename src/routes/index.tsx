@@ -109,7 +109,6 @@ function Index() {
         </div>
       </section>
 
-      </section>
 
 
       {/* ─────────────── 2. SERVICIOS — OFERTA B2C + B2B (midnight) ─────────────── */}
