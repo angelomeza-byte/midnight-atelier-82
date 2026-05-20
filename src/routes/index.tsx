@@ -31,8 +31,7 @@ function Index() {
           N O C T U M E
         </span>
       </div>
-
-      {/* ─────────────── 1. HERO — IDENTIDAD (cinematográfico) ─────────────── */}
+      {/* ─────────────── 1. HERO — IDENTIDAD (cinematográfico + 3D) ─────────────── */}
       <section
         ref={heroRef}
         className="relative flex h-[100svh] w-full items-end overflow-hidden bg-background"
@@ -44,11 +43,24 @@ function Index() {
           style={{
             transform: `translate3d(0, ${heroShift}px, 0) scale(1.05)`,
             opacity: Math.max(0, 1 - scrolled / 600),
-            filter: "brightness(0.85)",
+            filter: `brightness(${0.85 - scrolled / 2400}) blur(${Math.min(scrolled / 120, 8)}px)`,
             transition: "opacity 200ms linear",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background" />
+
+        {/* Floating 3D dessert objects */}
+        <Floating3DScene />
+
+        {/* Volumetric fog veil */}
+        <div
+          aria-hidden
+          className="absolute inset-0 z-[2]"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 70%, transparent 0%, oklch(0.12 0.02 35 / 0.4) 60%, oklch(0.08 0.015 30 / 0.85) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-background/40 via-background/10 to-background" />
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-8 pb-32 md:pb-40">
           <div className="space-y-6 soft-rise">
@@ -61,12 +73,30 @@ function Index() {
               y horas lentas.
             </h1>
           </div>
+
+          {/* Holographic UI sliver */}
+          <div
+            aria-hidden
+            className="mt-12 flex max-w-md items-center gap-4 rounded-sm border border-cream/15 bg-cream/[0.03] px-5 py-3 backdrop-blur-md"
+            style={{
+              background:
+                "linear-gradient(135deg, oklch(0.95 0.02 80 / 0.06), oklch(0.68 0.10 55 / 0.08), oklch(0.95 0.02 80 / 0.04))",
+              boxShadow:
+                "inset 0 1px 0 oklch(0.95 0.02 80 / 0.15), 0 0 40px oklch(0.68 0.10 55 / 0.12)",
+            }}
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-ember pulse-glow" />
+            <span className="eyebrow text-cream/80">
+              session 003 — open until dawn
+            </span>
+            <span className="ml-auto eyebrow text-cream/40">live</span>
+          </div>
         </div>
 
         {/* floating ember light */}
         <div
           aria-hidden
-          className="pointer-events-none absolute right-[15%] top-[20%] h-64 w-64 rounded-full pulse-glow"
+          className="pointer-events-none absolute right-[15%] top-[20%] z-[3] h-64 w-64 rounded-full pulse-glow"
           style={{
             background:
               "radial-gradient(circle, oklch(0.68 0.10 55 / 0.35), transparent 70%)",
@@ -77,6 +107,8 @@ function Index() {
         <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2">
           <span className="eyebrow whisper">desliza, despacio</span>
         </div>
+      </section>
+
       </section>
 
 
