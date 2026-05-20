@@ -19,16 +19,13 @@ export function Floating3DScene() {
 
     let raf = 0;
     let disposed = false;
-    let cleanup: (() => void) | null = null;
-
     (async () => {
-      const T = await import("three") as typeof import("three");
-      const THREE_NS = T;
       if (disposed || !mount.current) return;
 
       const el = mount.current;
       const w = () => el.clientWidth;
       const h = () => el.clientHeight;
+
 
       const scene = new THREE.Scene();
       scene.fog = new THREE.FogExp2(0x0a0807, 0.085);
