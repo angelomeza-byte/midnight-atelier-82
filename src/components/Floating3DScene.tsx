@@ -19,6 +19,8 @@ export function Floating3DScene() {
 
     let raf = 0;
     let disposed = false;
+    let cleanup: (() => void) | null = null;
+
     (async () => {
       if (disposed || !mount.current) return;
 
