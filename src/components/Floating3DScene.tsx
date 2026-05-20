@@ -21,7 +21,8 @@ export function Floating3DScene() {
     let cleanup: (() => void) | null = null;
 
     (async () => {
-      const THREE = await import("three");
+      const T = await import("three") as typeof import("three");
+      const THREE_NS = T;
       if (disposed || !mount.current) return;
 
       const el = mount.current;
