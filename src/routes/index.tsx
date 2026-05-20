@@ -155,7 +155,7 @@ function Index() {
             <span className="italic text-ember/90">entrar al cuarto.</span>
           </h2>
 
-          </h2>
+
 
           <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-2">
             {/* B2C */}
