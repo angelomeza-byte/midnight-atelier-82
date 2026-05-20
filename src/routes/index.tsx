@@ -304,7 +304,8 @@ function Index() {
       </section>
 
       {/* ─────────────── 4. ALCANCE — ESCALA + FUTURO (midnight) 🆕 ─────────────── */}
-      <section className="relative bg-background py-32">
+      <section className="reveal relative py-32" style={{ background: "linear-gradient(180deg, oklch(0.10 0.012 40 / 0.88), oklch(0.13 0.012 40 / 0.72) 50%, oklch(0.08 0.010 40 / 0.94))" }}>
+
         <div
           aria-hidden
           className="pointer-events-none absolute left-[5%] top-[40%] h-96 w-96 rounded-full pulse-glow"
