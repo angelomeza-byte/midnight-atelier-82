@@ -329,9 +329,6 @@ function Index() {
             </span>
           </h2>
 
-              Pero llegando más lejos.
-            </span>
-          </h2>
 
           <div className="mt-20 grid grid-cols-2 gap-y-16 md:grid-cols-4">
             {[
