@@ -131,7 +131,9 @@ function Index() {
 
 
       {/* ─────────────── 2. SERVICIOS — OFERTA B2C + B2B (midnight) ─────────────── */}
-      <section className="relative bg-background py-32">
+      <section className="reveal relative py-32" style={{ background: "linear-gradient(180deg, oklch(0.10 0.012 40 / 0.92), oklch(0.12 0.012 40 / 0.78) 50%, oklch(0.10 0.012 40 / 0.92))" }}>
+        <div className="pointer-events-none absolute inset-0 backdrop-blur-[2px]" />
+
         <div
           aria-hidden
           className="pointer-events-none absolute right-[10%] top-[20%] h-72 w-72 rounded-full pulse-glow"
