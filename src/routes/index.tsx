@@ -43,8 +43,7 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      {/* Persistent scroll-driven 3D environment (fixed, behind everything) */}
-      <Floating3DScene />
+
 
       {/* Wordmark */}
       <div className="fixed left-8 top-8 z-[80] mix-blend-difference">
