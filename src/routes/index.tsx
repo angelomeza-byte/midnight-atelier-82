@@ -4,7 +4,7 @@ import hero from "@/assets/hero.jpg";
 import dessert1 from "@/assets/dessert-1.jpg";
 import dessert2 from "@/assets/dessert-2.jpg";
 import dessert3 from "@/assets/dessert-3.jpg";
-import { Floating3DScene } from "@/components/Floating3DScene";
+
 
 
 export const Route = createFileRoute("/")({
@@ -43,8 +43,7 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      {/* Persistent scroll-driven 3D environment (fixed, behind everything) */}
-      <Floating3DScene />
+
 
       {/* Wordmark */}
       <div className="fixed left-8 top-8 z-[80] mix-blend-difference">
@@ -127,6 +126,97 @@ function Index() {
           <span className="eyebrow whisper">desliza, despacio</span>
         </div>
       </section>
+
+      {/* ─────────────── 1.5 BESTSELLERS — los dos más pedidos ─────────────── */}
+      <section className="reveal relative overflow-hidden py-32" style={{ background: "var(--color-cream)", color: "var(--color-espresso)" }}>
+        {/* Floating ambient glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-20 top-1/3 h-80 w-80 rounded-full float-slow"
+          style={{ background: "radial-gradient(circle, oklch(0.68 0.10 55 / 0.18), transparent 70%)", filter: "blur(70px)" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 bottom-10 h-96 w-96 rounded-full float-slow"
+          style={{ background: "radial-gradient(circle, oklch(0.32 0.045 45 / 0.15), transparent 70%)", filter: "blur(80px)", animationDelay: "1.5s" }}
+        />
+
+        <div className="mx-auto max-w-6xl px-8 md:px-16">
+          <div className="mb-16 flex items-center gap-4">
+            <span className="eyebrow" style={{ color: "var(--color-cocoa)" }}>
+              01 · 5 — los más pedidos
+            </span>
+            <span className="h-px w-24" style={{ background: "oklch(0.32 0.045 45 / 0.3)" }} />
+          </div>
+
+          <h2 className="reveal display max-w-3xl text-4xl md:text-6xl">
+            Dos piezas que
+            <br />
+            <span className="italic" style={{ color: "var(--color-cocoa)" }}>
+              vuelven a la mesa.
+            </span>
+          </h2>
+
+          <div className="mt-24 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-12">
+            {[
+              { img: dessert1, idx: "01", name: "Lingote de cacao", note: "Cacao 72%, sal de Maras, una sola hoja de oro.", style: { transform: "translateY(0)" } },
+              { img: dessert2, idx: "02", name: "Luna de avellana", note: "Praliné lento, espuma de leche quemada, miel oscura.", style: { transform: "translateY(40px)" } },
+            ].map((d, i) => (
+              <article
+                key={d.idx}
+                data-hover
+                className="group relative"
+                style={d.style}
+              >
+                <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+                  {/* Slow zoom on idle, parallax on hover */}
+                  <img
+                    src={d.img}
+                    alt={d.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover float-slow transition-all duration-[2200ms] ease-out group-hover:scale-110"
+                    style={{ animationDelay: `${i * 0.6}s`, filter: "brightness(0.92)" }}
+                  />
+                  {/* Soft vignette */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 transition-opacity duration-1000 group-hover:opacity-0"
+                    style={{ background: "radial-gradient(ellipse at center, transparent 40%, oklch(0.20 0.03 35 / 0.45) 100%)" }}
+                  />
+                  {/* Ember light flare on hover */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-10 opacity-0 transition-opacity duration-1000 group-hover:opacity-100"
+                    style={{ background: "radial-gradient(circle at 30% 30%, oklch(0.68 0.10 55 / 0.25), transparent 60%)", filter: "blur(30px)" }}
+                  />
+                  {/* Numeral overlay */}
+                  <div className="absolute left-6 top-6 z-10">
+                    <span className="display text-5xl text-cream/90 mix-blend-difference">
+                      {d.idx}
+                    </span>
+                  </div>
+                  {/* Slide-up caption */}
+                  <div
+                    className="absolute inset-x-0 bottom-0 z-10 translate-y-2 px-6 pb-6 pt-12 opacity-90 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100"
+                    style={{ background: "linear-gradient(180deg, transparent, oklch(0.20 0.03 35 / 0.85))" }}
+                  >
+                    <h3 className="display text-2xl text-cream md:text-3xl">{d.name}</h3>
+                    <p className="mt-2 max-w-xs text-xs leading-relaxed text-mist">
+                      {d.note}
+                    </p>
+                    <div className="mt-4 flex items-center gap-3">
+                      <span className="h-px w-6 bg-ember transition-all duration-700 group-hover:w-12" />
+                      <span className="eyebrow text-cream/80">añadir a la caja</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
 
 
