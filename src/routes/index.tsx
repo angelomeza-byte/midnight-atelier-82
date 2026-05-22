@@ -122,70 +122,41 @@ function Index() {
           }}
         />
 
-        {/* ── Bestsellers flotando dentro del hero ── */}
-        <div className="pointer-events-none absolute inset-0 z-[4] hidden md:block">
-          {/* Dessert 1 — arriba derecha, flota lento */}
-          <figure
-            className="group pointer-events-auto absolute right-[8%] top-[14%] w-[18vw] max-w-[260px] float-slow"
-            style={{
-              transform: `translate3d(0, ${scrolled * -0.08}px, 0) rotate(-3deg)`,
-            }}
-            data-hover
+        {/* ── Bestsellers de fondo en el hero ── */}
+        <div className="pointer-events-none absolute inset-0 z-[1] hidden md:block">
+          {/* Dessert 1 — fondo derecha arriba, quieto */}
+          <div
+            className="absolute right-[6%] top-[10%] w-[20vw] max-w-[300px] opacity-60"
+            style={{ transform: "rotate(-3deg)" }}
           >
-            <div className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-[0_30px_80px_-20px_oklch(0.05_0.01_30/0.8)]">
-              <img
-                src={dessert1}
-                alt="Lingote de cacao"
-                className="h-full w-full object-cover transition-all duration-[2000ms] ease-out group-hover:scale-110"
-                style={{ filter: "brightness(0.9)" }}
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -inset-6 opacity-0 transition-opacity duration-1000 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(circle, oklch(0.68 0.10 55 / 0.3), transparent 70%)",
-                  filter: "blur(30px)",
-                }}
-              />
-            </div>
-            <figcaption className="mt-3 flex items-center gap-2">
-              <span className="h-px w-4 bg-ember" />
-              <span className="eyebrow text-cream/80">01 — lingote de cacao</span>
-            </figcaption>
-          </figure>
+            <img
+              src={dessert1}
+              alt="Lingote de cacao"
+              className="h-full w-full rounded-sm object-cover"
+              style={{
+                filter: "brightness(0.7) blur(1px)",
+                maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+              }}
+            />
+          </div>
 
-          {/* Dessert 2 — medio derecha, desfase de flotación */}
-          <figure
-            className="group pointer-events-auto absolute right-[26%] top-[42%] w-[14vw] max-w-[200px] float-slow"
-            style={{
-              animationDelay: "1.4s",
-              transform: `translate3d(0, ${scrolled * -0.14}px, 0) rotate(2deg)`,
-            }}
-            data-hover
+          {/* Dessert 2 — fondo derecha centro, quieto */}
+          <div
+            className="absolute right-[22%] top-[38%] w-[16vw] max-w-[240px] opacity-50"
+            style={{ transform: "rotate(2deg)" }}
           >
-            <div className="relative aspect-[3/4] overflow-hidden rounded-sm shadow-[0_30px_80px_-20px_oklch(0.05_0.01_30/0.8)]">
-              <img
-                src={dessert2}
-                alt="Luna de avellana"
-                className="h-full w-full object-cover transition-all duration-[2000ms] ease-out group-hover:scale-110"
-                style={{ filter: "brightness(0.85)" }}
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -inset-6 opacity-0 transition-opacity duration-1000 group-hover:opacity-100"
-                style={{
-                  background:
-                    "radial-gradient(circle, oklch(0.68 0.10 55 / 0.3), transparent 70%)",
-                  filter: "blur(30px)",
-                }}
-              />
-            </div>
-            <figcaption className="mt-3 flex items-center gap-2">
-              <span className="h-px w-4 bg-ember" />
-              <span className="eyebrow text-cream/80">02 — luna de avellana</span>
-            </figcaption>
-          </figure>
+            <img
+              src={dessert2}
+              alt="Luna de avellana"
+              className="h-full w-full rounded-sm object-cover"
+              style={{
+                filter: "brightness(0.65) blur(1.5px)",
+                maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+              }}
+            />
+          </div>
         </div>
 
         <div className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2">
