@@ -4,7 +4,7 @@ import hero from "@/assets/hero.jpg";
 import dessert1 from "@/assets/dessert-1.jpg";
 import dessert2 from "@/assets/dessert-2.jpg";
 import dessert3 from "@/assets/dessert-3.jpg";
-import { Floating3DScene } from "@/components/Floating3DScene";
+
 
 
 export const Route = createFileRoute("/")({
